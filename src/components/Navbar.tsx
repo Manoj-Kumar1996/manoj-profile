@@ -45,7 +45,7 @@ export default function Navbar() {
               <Terminal className="h-4 w-4" />
             </span>
             <span className="font-mono text-sm font-medium tracking-widest text-cream">
-              manoj<span className="text-lime">.dev</span>
+              manoj kumar<span className="text-lime">.dev</span>
             </span>
           </a>
 
