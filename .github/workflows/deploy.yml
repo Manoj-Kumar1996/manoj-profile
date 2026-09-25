@@ -3,31 +3,31 @@ name: Deploy React TSX App to AWS EC2
 on:
   push:
     branches:
-      - main   # Automatically triggers when you push to main branch
+      - main
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
 
     steps:
-      # 1. Pull code from GitHub repository
+      # 1. Checkout repository
       - name: Checkout Repository
         uses: actions/checkout@v4
 
-      # 2. Setup Node.js environment
+      # 2. Setup Node.js
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 22
           cache: 'npm'
 
-      # 3. Install NPM dependencies & Build Vite project (creates dist/ folder)
+      # 3. Install packages and build Vite TSX project
       - name: Install Dependencies and Build Project
         run: |
-          npm ci
+          npm install
           npm run build
 
-      # 4. Upload dist/ folder contents to EC2 via SCP
+      # 4. Upload dist/ folder to ec2-user home directory (No permission errors!)
       - name: Copy Files to EC2 Server
         uses: appleboy/scp-action@v0.1.7
         with:
@@ -35,16 +35,18 @@ jobs:
           username: ${{ secrets.EC2_USERNAME }}
           key: ${{ secrets.EC2_SSH_KEY }}
           source: 'dist/*'
-          target: '/usr/share/nginx/html'
+          target: '/home/ec2-user/app-build'
           strip_components: 1
           rm: true
 
-      # 5. Reload Nginx service on EC2
-      - name: Reload Nginx Web Server
+      # 5. Move files to Nginx using sudo permissions & Reload
+      - name: Deploy to Nginx Web Server
         uses: appleboy/ssh-action@v1.0.3
         with:
           host: ${{ secrets.EC2_HOST }}
           username: ${{ secrets.EC2_USERNAME }}
           key: ${{ secrets.EC2_SSH_KEY }}
           script: |
+            sudo rm -rf /usr/share/nginx/html/*
+            sudo cp -r /home/ec2-user/app-build/* /usr/share/nginx/html/
             sudo systemctl reload nginx
