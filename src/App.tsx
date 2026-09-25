@@ -12,6 +12,7 @@ import Projects from "./components/Projects";
 import SeoSection from "./components/SeoSection";
 import Education from "./components/Education";
 import Contact from "./components/Contact";
+import GoogleAnalytics from "./components/GoogleAnalytics";
 import { profile } from "./data";
 
 function ScrollProgress() {
@@ -30,6 +31,7 @@ export default function App() {
 
   return (
     <div className="noise relative min-h-screen bg-ink text-cream">
+      <GoogleAnalytics />
       <Cursor />
       <ScrollProgress />
 

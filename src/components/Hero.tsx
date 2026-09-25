@@ -27,7 +27,7 @@ export default function Hero() {
   const fade = useTransform(scrollYProgress, [0, 0.7], [1, 0]);
 
   return (
-    <section ref={ref} id="top" className="relative flex min-h-screen flex-col overflow-hidden">
+    <header ref={ref} id="top" className="relative flex min-h-screen flex-col overflow-hidden" role="banner">
       {/* vertical grid lines */}
       <div className="pointer-events-none absolute inset-0 mx-auto flex max-w-[1440px] justify-between px-6 md:px-12">
         {[...Array(5)].map((_, i) => (
@@ -118,17 +118,17 @@ export default function Hero() {
             className="group relative overflow-hidden rounded-2xl shadow-[0_0_0_1px_rgba(200,245,66,0.12),0_40px_80px_-20px_rgba(0,0,0,0.95)] transition-shadow duration-700 hover:shadow-[0_0_0_1px_rgba(200,245,66,0.35),0_40px_100px_-20px_rgba(0,0,0,0.95)]"
             data-hover
           >
-            <img
-              src="/images/manoj-kumar.png"
-              alt="Manoj Kumar — Full-Stack Developer"
-              className="aspect-[4/5] w-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.04]"
-            />
-            {/* lime gradient vignette at bottom */}
-            <div className="absolute inset-x-0 bottom-0 flex items-center justify-between bg-gradient-to-t from-ink via-ink/60 to-transparent px-4 pb-3 pt-16 font-mono text-[10px] uppercase tracking-[0.2em]">
-              <span className="text-lime">$ whoami</span>
-              <span className="text-cream/80">manoj_kumar</span>
-            </div>
+          <img
+            src="/images/manoj-kumar.png"
+            alt="Manoj Kumar — PHP/Laravel Full-Stack Developer"
+            className="aspect-[4/5] w-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.04]"
+          />
+          {/* lime gradient vignette at bottom */}
+          <div className="absolute inset-x-0 bottom-0 flex items-center justify-between bg-gradient-to-t from-ink via-ink/60 to-transparent px-4 pb-3 pt-16 font-mono text-[10px] uppercase tracking-[0.2em]">
+            <span className="text-lime">$ whoami</span>
+            <span className="text-cream/80">manoj_kumar</span>
           </div>
+        </div>
         {chips.map((c) => (
           <span
             key={c.label}
@@ -163,6 +163,6 @@ export default function Hero() {
       <a href="#contact" className="sr-only">
         <Download /> Download resume
       </a>
-    </section>
+    </header>
   );
 }

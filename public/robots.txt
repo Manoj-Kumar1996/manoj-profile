@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://manoj-profile-ebon.vercel.app/sitemap.xml
