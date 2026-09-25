@@ -136,7 +136,7 @@ export default function Hero() {
             className={`animate-floaty absolute ${c.className} rounded-full border border-line bg-panel/90 px-4 py-2 font-mono text-[11px] tracking-wider text-cream shadow-lg backdrop-blur`}
           >
             <span className="mr-1.5 inline-block h-1.5 w-1.5 rounded-full bg-lime align-middle" />
-            {c.label}
+            {c.label }
           </span>
         ))}
       </motion.div>
