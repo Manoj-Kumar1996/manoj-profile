@@ -9,12 +9,7 @@ declare global {
 
 export default function GoogleAnalytics() {
   useEffect(() => {
-    const GA_MEASUREMENT_ID = import.meta.env.VITE_GA_ID || "G-XXXXXXXXXX";
-
-    if (GA_MEASUREMENT_ID === "G-XXXXXXXXXX") {
-      console.warn("Google Analytics: VITE_GA_ID not set. Add to .env file.");
-      return;
-    }
+    const GA_MEASUREMENT_ID = "G-3FYH774S7V";
 
     window.dataLayer = window.dataLayer || [];
     window.gtag = function gtag() {
