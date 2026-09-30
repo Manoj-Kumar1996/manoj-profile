@@ -1,11 +1,4 @@
 {
-  "redirects": [
-    {
-      "source": "https://www.manoj-profile-ebon.vercel.app/:path*",
-      "destination": "https://manoj-profile-ebon.vercel.app/:path*",
-      "permanent": true
-    }
-  ],
   "headers": [
     {
       "source": "/(.*)",
@@ -39,15 +32,6 @@
     },
     {
       "source": "/sitemap.xml",
-      "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "public, max-age=86400"
-        }
-      ]
-    },
-    {
-      "source": "/robots.txt",
       "headers": [
         {
           "key": "Cache-Control",
