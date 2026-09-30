@@ -30,3 +30,5 @@ yarn-error.log
 .phpunit.result.cache
 .DS_Store
 Thumbs.db
+.vercel
+.env*
