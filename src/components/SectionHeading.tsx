@@ -5,9 +5,10 @@ type Props = {
   eyebrow: string;
   title: string;
   accent?: string;
+  id?: string;
 };
 
-export default function SectionHeading({ index, eyebrow, title, accent }: Props) {
+export default function SectionHeading({ index, eyebrow, title, accent, id }: Props) {
   return (
     <div>
       <Reveal>
@@ -18,7 +19,7 @@ export default function SectionHeading({ index, eyebrow, title, accent }: Props)
         </div>
       </Reveal>
       <Reveal delay={0.08}>
-        <h2 className="mt-6 text-[clamp(2.4rem,6vw,5rem)] font-bold uppercase leading-[0.95] tracking-tight text-cream">
+        <h2 id={id} className="mt-6 text-[clamp(2.4rem,6vw,5rem)] font-bold uppercase leading-[0.95] tracking-tight text-cream">
           {title}{" "}
           {accent && (
             <span className="font-serif font-normal normal-case italic tracking-normal text-lime">

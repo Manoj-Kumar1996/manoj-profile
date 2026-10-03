@@ -22,10 +22,16 @@ export default function Experience() {
               itemScope
               itemType="https://schema.org/JobPosting"
             >
+              <meta itemProp="title" content={job.role} />
+              <meta itemProp="employmentType" content={job.type} />
+              <meta itemProp="jobLocation" content={job.location} />
+              <meta itemProp="validThrough" content={job.endDate || new Date().toISOString().split('T')[0]} />
+              <meta itemProp="baseSalary" content="" />
+
               {/* left meta */}
               <div className="lg:col-span-3 lg:pl-4">
                 <div className="font-mono text-sm text-lime">[ {job.index} ]</div>
-                <time itemProp="datePosted" className="mt-3 font-mono text-xs uppercase tracking-[0.2em] text-mute" dateTime={job.period}>{job.period}</time>
+                <time itemProp="datePosted" className="mt-3 font-mono text-xs uppercase tracking-[0.2em] text-mute" dateTime={job.startDate}>{job.period}</time>
                 <div className="mt-1.5 inline-block rounded-full border border-line px-3 py-1 font-mono text-[10px] uppercase tracking-[0.2em] text-dim">
                   {job.type}
                 </div>

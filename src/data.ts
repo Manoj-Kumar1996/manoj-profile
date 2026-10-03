@@ -107,6 +107,9 @@ export type Experience = {
   type: string;
   points: string[];
   tags: string[];
+  location: string;
+  startDate: string;
+  endDate?: string;
 };
 
 export const experience: Experience[] = [
@@ -114,8 +117,11 @@ export const experience: Experience[] = [
     index: "01",
     role: "PHP / Laravel Developer",
     company: "Pandaje Web Services",
-    period: "3 Years",
+    period: "2021 — 2024",
     type: "Full-time",
+    location: "India (Remote)",
+    startDate: "2021-01-01",
+    endDate: "2024-12-31",
     points: [
       "Developed and maintained production PHP / Laravel applications used by thousands of end-users.",
       "Designed RESTful APIs connecting Laravel backends with React frontends; tested and debugged with Postman.",
@@ -130,8 +136,10 @@ export const experience: Experience[] = [
     index: "02",
     role: "Freelance Full-Stack Developer",
     company: "Multi-Domain Client Projects",
-    period: "50+ Projects",
+    period: "2020 — Present",
     type: "Independent",
+    location: "India (Remote)",
+    startDate: "2020-01-01",
     points: [
       "Delivered 50+ websites & web apps across real estate, healthcare, construction, interior design and service industries.",
       "Shipped with Laravel, React, Next.js, WordPress, Shopify, Wix & Botble CMS — choosing the stack per project fit.",
@@ -146,8 +154,11 @@ export const experience: Experience[] = [
     index: "03",
     role: "Website Developer",
     company: "Dream Reflection Media Pvt. Ltd.",
-    period: "1 Year",
+    period: "2019 — 2020",
     type: "Full-time",
+    location: "India",
+    startDate: "2019-01-01",
+    endDate: "2020-12-31",
     points: [
       "Built responsive, cross-browser compatible websites with HTML, CSS, JavaScript and PHP.",
       "Converted UI/UX designs and mockups into pixel-accurate web pages.",
