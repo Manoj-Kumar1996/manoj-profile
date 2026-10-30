@@ -1,8 +1,14 @@
-import { ArrowUp, ArrowUpRight, Mail, MapPin, Phone } from "lucide-react";
+import { useState, type FormEvent } from "react";
+import { ArrowUp, ArrowUpRight, Mail, MapPin, Phone, Send } from "lucide-react";
+import emailjs from "@emailjs/browser";
 import SectionHeading from "./SectionHeading";
 import Reveal from "./Reveal";
 import { GithubIcon, LinkedinIcon } from "./BrandIcons";
 import { profile } from "../data";
+
+const EMAILJS_SERVICE_ID = "service_4im87ph";
+const EMAILJS_TEMPLATE_ID = "template_2aohvvb";
+const EMAILJS_PUBLIC_KEY = "vXAGIRqtCUvBPDSu6";
 
 const channels = [
   {
@@ -26,6 +32,23 @@ const channels = [
 
 export default function Contact() {
   const year = new Date().getFullYear();
+  const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
+
+  async function handleSend(e: FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    const form = e.currentTarget;
+    setStatus("sending");
+    try {
+      await emailjs.sendForm(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, form, {
+        publicKey: EMAILJS_PUBLIC_KEY,
+      });
+      form.reset();
+      setStatus("sent");
+    } catch (err) {
+      console.error("EmailJS error:", err);
+      setStatus("error");
+    }
+  }
 
   return (
     <footer id="contact" className="relative border-t border-line bg-panel/20">
@@ -35,15 +58,9 @@ export default function Contact() {
         {/* lead form */}
         <Reveal className="mt-14">
           <form
-            action={`https://formsubmit.co/${profile.email}`}
-            method="POST"
+            onSubmit={handleSend}
             className="grid gap-5 border border-line bg-panel/40 p-6 md:grid-cols-2 md:p-10"
           >
-            <input type="hidden" name="_subject" value="New website quote request from your portfolio site" />
-            <input type="hidden" name="_next" value="https://manoj-profile-ebon.vercel.app/?sent=1" />
-            <input type="hidden" name="_captcha" value="false" />
-            <input type="text" name="_honey" tabIndex={-1} autoComplete="off" className="hidden" aria-hidden="true" />
-
             <label className="block">
               <span className="mb-2 block font-mono text-[10px] uppercase tracking-[0.25em] text-dim">Your name *</span>
               <input
@@ -74,11 +91,11 @@ export default function Contact() {
               />
             </label>
             <label className="block">
-              <span className="mb-2 block font-mono text-[10px] uppercase tracking-[0.25em] text-dim">Budget (optional)</span>
+              <span className="mb-2 block font-mono text-[10px] uppercase tracking-[0.25em] text-dim">Budget (₹ INR, optional)</span>
               <input
                 type="text"
                 name="budget"
-                placeholder="e.g. $500"
+                placeholder="e.g. ₹50,000"
                 className="w-full border border-line bg-ink/60 px-4 py-3.5 font-mono text-sm text-cream placeholder:text-dim focus:border-lime focus:outline-none"
               />
             </label>
@@ -95,13 +112,32 @@ export default function Contact() {
             <div className="flex flex-wrap items-center gap-4 md:col-span-2">
               <button
                 type="submit"
-                className="rounded-full bg-lime px-8 py-4 font-mono text-xs font-semibold uppercase tracking-[0.15em] text-ink transition-transform duration-300 hover:scale-[1.04]"
+                disabled={status === "sending"}
+                className="rounded-full bg-lime px-8 py-4 font-mono text-xs font-semibold uppercase tracking-[0.15em] text-ink transition-transform duration-300 hover:scale-[1.04] disabled:cursor-wait disabled:opacity-60"
               >
-                Send Message
+                {status === "sending" ? (
+                  <span className="flex items-center gap-2">
+                    <Send className="h-3.5 w-3.5 animate-pulse" /> Sending...
+                  </span>
+                ) : (
+                  "Send Message"
+                )}
               </button>
-              <span className="font-mono text-[11px] uppercase tracking-[0.15em] text-dim">
-                Replies within 24 hours
-              </span>
+              {status === "sent" && (
+                <span className="font-mono text-[11px] uppercase tracking-[0.15em] text-lime">
+                  ✓ Message sent — reply within 24 hours
+                </span>
+              )}
+              {status === "error" && (
+                <span className="font-mono text-[11px] uppercase tracking-[0.15em] text-red-400">
+                  Failed to send — email {profile.email} directly
+                </span>
+              )}
+              {status === "idle" && (
+                <span className="font-mono text-[11px] uppercase tracking-[0.15em] text-dim">
+                  Replies within 24 hours
+                </span>
+              )}
             </div>
           </form>
         </Reveal>
