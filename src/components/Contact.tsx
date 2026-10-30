@@ -32,6 +32,80 @@ export default function Contact() {
       <div className="mx-auto max-w-[1440px] px-6 pt-28 md:px-12 md:pt-40">
         <SectionHeading index="07" eyebrow="Contact / Say hello" title="Have a project" accent="in mind?" />
 
+        {/* lead form */}
+        <Reveal className="mt-14">
+          <form
+            action={`https://formsubmit.co/${profile.email}`}
+            method="POST"
+            className="grid gap-5 border border-line bg-panel/40 p-6 md:grid-cols-2 md:p-10"
+          >
+            <input type="hidden" name="_subject" value="New website quote request from your portfolio site" />
+            <input type="hidden" name="_next" value="https://manoj-profile-ebon.vercel.app/?sent=1" />
+            <input type="hidden" name="_captcha" value="false" />
+            <input type="text" name="_honey" tabIndex={-1} autoComplete="off" className="hidden" aria-hidden="true" />
+
+            <label className="block">
+              <span className="mb-2 block font-mono text-[10px] uppercase tracking-[0.25em] text-dim">Your name *</span>
+              <input
+                type="text"
+                name="name"
+                required
+                placeholder="John Doe"
+                className="w-full border border-line bg-ink/60 px-4 py-3.5 font-mono text-sm text-cream placeholder:text-dim focus:border-lime focus:outline-none"
+              />
+            </label>
+            <label className="block">
+              <span className="mb-2 block font-mono text-[10px] uppercase tracking-[0.25em] text-dim">Email *</span>
+              <input
+                type="email"
+                name="email"
+                required
+                placeholder="you@company.com"
+                className="w-full border border-line bg-ink/60 px-4 py-3.5 font-mono text-sm text-cream placeholder:text-dim focus:border-lime focus:outline-none"
+              />
+            </label>
+            <label className="block">
+              <span className="mb-2 block font-mono text-[10px] uppercase tracking-[0.25em] text-dim">Phone / WhatsApp</span>
+              <input
+                type="tel"
+                name="phone"
+                placeholder="+91 00000 00000"
+                className="w-full border border-line bg-ink/60 px-4 py-3.5 font-mono text-sm text-cream placeholder:text-dim focus:border-lime focus:outline-none"
+              />
+            </label>
+            <label className="block">
+              <span className="mb-2 block font-mono text-[10px] uppercase tracking-[0.25em] text-dim">Budget (optional)</span>
+              <input
+                type="text"
+                name="budget"
+                placeholder="e.g. $500"
+                className="w-full border border-line bg-ink/60 px-4 py-3.5 font-mono text-sm text-cream placeholder:text-dim focus:border-lime focus:outline-none"
+              />
+            </label>
+            <label className="block md:col-span-2">
+              <span className="mb-2 block font-mono text-[10px] uppercase tracking-[0.25em] text-dim">What do you need? *</span>
+              <textarea
+                name="message"
+                required
+                rows={5}
+                placeholder="Tell me about your website project — pages, features, timeline..."
+                className="w-full resize-y border border-line bg-ink/60 px-4 py-3.5 font-mono text-sm text-cream placeholder:text-dim focus:border-lime focus:outline-none"
+              />
+            </label>
+            <div className="flex flex-wrap items-center gap-4 md:col-span-2">
+              <button
+                type="submit"
+                className="rounded-full bg-lime px-8 py-4 font-mono text-xs font-semibold uppercase tracking-[0.15em] text-ink transition-transform duration-300 hover:scale-[1.04]"
+              >
+                Send Message
+              </button>
+              <span className="font-mono text-[11px] uppercase tracking-[0.15em] text-dim">
+                Replies within 24 hours
+              </span>
+            </div>
+          </form>
+        </Reveal>
+
         <Reveal className="mt-14">
           <a
             href={`mailto:${profile.email}`}
@@ -81,7 +155,10 @@ export default function Contact() {
         {/* bottom bar */}
         <div className="flex flex-wrap items-center justify-between gap-6 border-t border-line py-8">
           <p className="font-mono text-[11px] uppercase tracking-[0.25em] text-dim">
-            © {year} Manoj Kumar <span className="text-lime">/</span> Full-Stack Developer
+            © {year} Manoj Kumar <span className="text-lime">/</span> Full-Stack Developer{" "}
+            <a href="/privacy.html" className="ml-2 underline decoration-lime/40 transition-colors hover:text-lime">
+              Privacy
+            </a>
           </p>
 
           <div className="flex items-center gap-3">

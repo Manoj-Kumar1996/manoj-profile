@@ -93,11 +93,11 @@ export default function Hero() {
               <ArrowDown className="h-4 w-4 transition-transform group-hover:translate-y-0.5" />
             </a>
             <a
-              href={`mailto:${profile.email}`}
+              href="#contact"
               className="group flex items-center gap-2 rounded-full border border-line bg-panel/60 px-7 py-4 font-mono text-xs font-semibold uppercase tracking-[0.15em] text-cream transition-colors duration-300 hover:border-lime/60 hover:text-lime"
             >
               <Mail className="h-4 w-4" />
-              Get in Touch
+              Get a Free Quote
             </a>
             <span className="flex items-center gap-2 font-mono text-xs uppercase tracking-[0.2em] text-dim">
               <MapPin className="h-3.5 w-3.5 text-lime" /> {profile.location} · IST (UTC +5:30)
