@@ -5,6 +5,7 @@ import {
   Search,
   CreditCard,
   Blocks,
+  Bot,
   Workflow,
   type LucideIcon,
 } from "lucide-react";
@@ -93,6 +94,16 @@ export const skillGroups: SkillGroup[] = [
     items: [
       "REST API Development", "Caching", "RBAC", "Agile / Scrum",
       "Code Reviews", "Postman", "Git", "Testing & Deployment",
+    ],
+  },
+  {
+    icon: Bot,
+    title: "MCP & Ads Automation",
+    blurb: "Model Context Protocol server for automated Google Ads campaign management.",
+    items: [
+      "Model Context Protocol (MCP)", "Google Ads API", "Campaign Automation",
+      "Responsive Search Ads (RSA)", "Lead Form Assets", "GAQL Queries",
+      "Geo & Language Targeting", "Budget & Bid Management", "OAuth Desktop Client",
     ],
   },
 ];
