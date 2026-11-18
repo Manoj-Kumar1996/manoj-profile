@@ -186,22 +186,22 @@ export const projects: Project[] = [
   {
     index: "01",
     title: "E-Commerce Platform",
-    category: "Full-Stack · Multi-Gateway Payments",
+    category: "E-Commerce · Shopify Storefront",
     description:
-      "A full-stack commerce engine with complete product, cart, order and customer workflows — backed by tri-role access for admins, vendors and customers, and multi-gateway payment processing.",
-    features: ["Admin / Vendor / Customer RBAC", "Razorpay + Stripe checkout", "Order & transaction management"],
-    tech: ["Laravel", "React.js", "Redux", "MySQL", "Razorpay", "Stripe"],
-    image: "/images/project-ecommerce.jpg",
+      "A custom-built Shopify e-commerce store designed for seamless shopping experiences, featuring custom Liquid section layouts, automated inventory management, and streamlined checkout workflows.",
+    features: ["Custom Shopify Theme & Liquid Sections", "Seamless Checkout & Gateway Setup", "Optimized Product & Catalog Management"],
+    tech: ["Shopify", "Liquid", "JavaScript", "Shopify API", "CSS3"],
+    image: "/images/Party Specials_ Cakes & Celebrations.png",
   },
   {
     index: "02",
-    title: "RESTful API Management System",
-    category: "Backend · API Infrastructure",
+    title: "Property Management Dashboard",
+    category: "Full-Stack · Next.js Platform",
     description:
-      "A secure REST API suite with CRUD endpoints, pagination and filtering, JWT-based auth and rate-limiting — fully documented in Postman for third-party consumers.",
-    features: ["JWT auth & authorization", "Rate-limiting & API security", "Postman-documented endpoints"],
-    tech: ["PHP", "Laravel", "MySQL", "JWT", "Postman"],
-    image: "/images/project-api.jpg",
+      "A modern property management and analytics dashboard built with Next.js — leveraging server-side rendering, fast page loads, dynamic UI modules, and REST API integration.",
+    features: ["Next.js Server-Side Rendering (SSR)", "RESTful API Integration", "Interactive Dashboard Analytics"],
+    tech: ["Next.js", "React.js", "TypeScript", "Tailwind CSS", "REST API"],
+    image: "/images/Vyon Regency Property Dashboard.png",
   },
   {
     index: "03",
@@ -210,28 +210,28 @@ export const projects: Project[] = [
     description:
       "A full-stack academic platform pairing a Laravel backend with a React + Inertia.js frontend — delivering server-driven SPA fluidity for student records, workflows and authentication.",
     features: ["Database-driven student workflows", "Inertia.js server-driven SPA", "Auth + CRUD modules"],
-    tech: ["Laravel", "React.js", "Inertia.js", "MySQL"],
-    image: "/images/project-student.jpg",
+    tech: ["Laravel", "React.js", "Inertia.js", "MySQL", "Tailwind CSS"],
+    image: "/images/Modern Student Management Dashboard.png",
   },
   {
     index: "04",
     title: "FindYourLand",
-    category: "Real Estate · CMS Customization",
+    category: "Real Estate · Botble CMS & Laravel",
     description:
-      "A real-estate listing platform built on Botble CMS with custom property search, deep CMS-level customization and SEO-friendly structures tuned for search accessibility.",
-    features: ["Custom property search & filters", "Botble CMS customization", "SEO-friendly page structures"],
-    tech: ["Botble CMS", "PHP", "MySQL", "SEO"],
-    image: "/images/project-realestate.jpg",
+      "A real-estate listing platform built on the Laravel-powered Botble CMS platform with custom property search filters, deep backend customization, and SEO-friendly structures.",
+    features: ["Custom property search & filters", "Laravel Botble CMS customization", "SEO-friendly page structures"],
+    tech: ["Laravel", "Botble CMS", "PHP", "MySQL", "SEO"],
+    image: "/images/find your land dashboard.png",
   },
   {
     index: "05",
     title: "Vyom Regency",
     category: "Real Estate · SEO-First Website",
     description:
-      "An SEO-focused real-estate website in Next.js — with deliberate metadata architecture, clean URLs, property-focused content structures and internal linking built for discoverability.",
+      "An SEO-focused real-estate website built in Next.js — with deliberate metadata architecture, clean URLs, property-focused content structures and internal linking built for discoverability.",
     features: ["On-page + technical SEO build", "Metadata & URL architecture", "Responsive property pages"],
-    tech: ["Next.js", "JavaScript", "SEO", "Tailwind CSS"],
-    image: "/images/project-vyom.jpg",
+    tech: ["Next.js", "React.js", "JavaScript", "Tailwind CSS", "SEO"],
+    image: "/images/Vyom Regency Aravali Hills Homepage.png",
   },
 ];
 
